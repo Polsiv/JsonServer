@@ -5,21 +5,22 @@ async function loadUsers(){
     const usersContainer = document.getElementById('users-container');
 
     users.forEach(user => {
-        const userElement = document.createElement('div');
-        userElement.classList.add('user');
-        
-        const titleElement = document.createElement('h2');
-        titleElement.textContent = user.id;
-        
-        const contentElement = document.createElement('p');
-        contentElement.textContent = user.name;
-        
-        userElement.appendChild(titleElement);
-        userElement.appendChild(contentElement);
-        
-        usersContainer.appendChild(userElement);
-        
+      
+        usersContainer.insertAdjacentHTML('beforeend', 
+            `
+            <div class="card" style="width: 18rem;">
+                <img src="https://via.placeholder.com/150" class="card-img-top" alt="${user.name}">
+                <div class="card-body">
+                    <h5 class="card-title">${user.name}</h5>
+                    <p class="card-text">Username: ${user.username}</p>
+                    <a href="#" class="btn btn-primary">View Profile</a>
+                </div>
+            </div>
+            `
+        )
     });
 }
 
 loadUsers();
+
+

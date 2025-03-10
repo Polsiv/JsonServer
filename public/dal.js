@@ -1,6 +1,6 @@
 const API_URL = "http://localhost:3000/api/v1";
 
-async function getUsers (){
+export async function getUsers (){
     try {
         const res = await fetch(`${API_URL}/users`);
         if (!res.ok) {
@@ -9,9 +9,8 @@ async function getUsers (){
 
         return await res.json();
     } catch (error) {
-        console.error(error);
+        console.error("error:", error);
         return [];
     }
 }
 
-module.exports = { getUsers };

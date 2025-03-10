@@ -1,7 +1,7 @@
-import { getUsers } from './dal';
+import { getUsers } from './dal.js';
 
 
-async function getUser () {
+export async function getUser () {
     const users = await getUsers();
 
     return users.map(user => ({
@@ -12,7 +12,3 @@ async function getUser () {
     }));
 }
 
-
-module.exports = {
-    getUser
-}
